@@ -4,9 +4,9 @@ import lombok.Getter;
 
 
 @Entity
-@Table(name = "campaign_has_country")
+@Table(name = "campaign_country")
 @Getter
-@IdClass(CampaignCountryId.class)
+//@IdClass(CampaignCountryId.class)
 public class CampaignCountry {
     @Id
     @ManyToOne

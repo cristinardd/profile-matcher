@@ -2,7 +2,7 @@ package main.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 @Entity
-@Table(name = "campaign_level_matcher")
+@Table(name = "campaign_level")
 @Getter
 public class CampaignLevel {
     @Id

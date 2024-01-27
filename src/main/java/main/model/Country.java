@@ -1,5 +1,6 @@
 package main.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -12,4 +13,9 @@ public class Country {
     @Id
     @Column(name = "country_code",updatable = false, nullable = false)
     private String countryCode;
+
+    @JsonValue
+    public String getCountryCode() {
+        return countryCode;
+    }
 }

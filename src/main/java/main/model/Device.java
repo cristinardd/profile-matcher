@@ -1,6 +1,9 @@
 package main.model;
 import jakarta.persistence.*;
+import lombok.Getter;
+
 @Entity
+@Getter
 @Table(name = "device")
 public class Device {
     @Id

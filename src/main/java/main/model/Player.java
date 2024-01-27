@@ -1,18 +1,27 @@
 package main.model;
 import jakarta.persistence.*;
+import lombok.*;
+import main.model.util.Gender;
+import main.model.util.GenderConverter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "player")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 public class Player {
 
     @Id
-    @Column(name = "player_id")
-    private UUID playerId;
+    @Column(name = "player_id", columnDefinition = "CHAR(36)")
+    private String playerId;
 
     @Column(name = "credential", nullable = false)
     private String credential;
@@ -59,18 +68,21 @@ public class Player {
     @Column(name = "birthdate", nullable = false)
     private LocalDateTime birthdate;
 
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = GenderConverter.class)
     @Column(name = "gender", nullable = false)
     private Gender gender;
-
-    @Column(name = "clan_id")
-    private UUID clanId;
 
     @Column(name = "_customfield")
     private String customfield;
 
+    @ManyToOne
+    @JoinColumn(name = "clan_id")
+    private Clan clan;
 
-    public enum Gender {
-        MALE, FEMALE, OTHER
-    }
+    @OneToMany(mappedBy = "player")
+    private Set<Device> devices;
+    @OneToMany(mappedBy = "player")
+    private Set<Inventory> inventory;
+    @Column(name = "active_campaign")
+    private String activeCampaign;
 }

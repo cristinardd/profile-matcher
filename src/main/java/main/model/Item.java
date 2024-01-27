@@ -1,9 +1,6 @@
 package main.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 @Entity
@@ -13,4 +10,12 @@ public class Item {
     @Id
     @Column(name = "item_name",updatable = false, nullable = false)
     private String itemName;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type", nullable = false)
+    private ItemType type;
+
+    public enum ItemType {
+        ITEM, COIN, CASH
+    }
 }

@@ -1,15 +1,13 @@
 package main.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jdk.jfr.Timestamp;
 import lombok.Getter;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "campaign")
@@ -28,8 +26,19 @@ public class Campaign {
     @Timestamp
     private LocalDateTime endDate;
     @Column(name = "enabled", nullable = false)
-    private Boolean enabled;
+    private boolean enabled;
     @Column(name = "last_updated", nullable = false)
     @UpdateTimestamp
     private LocalDateTime lastUpdated;
+    @OneToMany(mappedBy = "campaign")
+    private Set<CampaignLevel> levelMatchers;
+
+    @OneToMany(mappedBy = "campaign")
+    private Set<CampaignCountry> countries;
+
+    @OneToMany(mappedBy = "campaign")
+    private Set<CampaignItem> items;
+
+    @OneToMany(mappedBy = "campaign")
+    private Set<CampaignDoesNotHaveItem> doesNotHaveItems;
 }
