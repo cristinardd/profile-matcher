@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import main.model.embeddable.CampaignCountryId;
 import main.model.embeddable.CampaignItemId;
 
 @Entity

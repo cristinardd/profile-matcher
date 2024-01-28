@@ -6,7 +6,6 @@ import main.model.embeddable.InventoryId;
 
 @Entity
 @Table(name = "inventory")
-//@IdClass(InventoryId.class)
 @Getter
 public class Inventory {
     @EmbeddedId

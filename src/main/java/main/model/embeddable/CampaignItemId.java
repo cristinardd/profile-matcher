@@ -2,8 +2,6 @@ package main.model.embeddable;
 
 
 import jakarta.persistence.Embeddable;
-import main.model.Campaign;
-import main.model.Item;
 
 import java.io.Serializable;
 
