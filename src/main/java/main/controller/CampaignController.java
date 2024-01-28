@@ -2,7 +2,6 @@ package main.controller;
 
 import lombok.RequiredArgsConstructor;
 import main.dto.CampaignDto;
-import main.model.Player;
 import main.service.CampaignService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +16,9 @@ import java.util.List;
 public class CampaignController {
     private final CampaignService campaignService;
 
-    @GetMapping(value = "/getCampaigns")
+    @GetMapping("/getCampaigns")
     public ResponseEntity<List<CampaignDto>> getCurrentCampaigns(){
-        return ResponseEntity.ok(campaignService.getCurrentCampaigns());
+        return ResponseEntity.ok(campaignService.getAllCampaigns());
     }
 
 }

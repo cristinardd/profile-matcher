@@ -6,8 +6,8 @@ import main.model.util.GenderConverter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -41,10 +41,10 @@ public class Player {
     private Integer totalSpent;
 
     @Column(name = "total_refund", nullable = false)
-    private Integer totalRefund;
+    private BigDecimal totalRefund;
 
     @Column(name = "total_transactions", nullable = false)
-    private Integer totalTransactions;
+    private BigDecimal totalTransactions;
 
     @Column(name = "last_purchase", nullable = false)
     private LocalDateTime lastPurchase;

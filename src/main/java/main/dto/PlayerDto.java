@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -24,8 +25,8 @@ public class PlayerDto {
     private String customfield;
     private Integer totalSpent;
     private Integer level;
-    private Integer totalRefund;
-    private Integer totalTransactions;
+    private BigDecimal totalRefund;
+    private BigDecimal totalTransactions;
     private Integer totalPlaytime;
     private String language;
     private Integer xp;

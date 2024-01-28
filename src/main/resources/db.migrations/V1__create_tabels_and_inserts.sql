@@ -89,7 +89,7 @@ CREATE TABLE player
     birthdate          TIMESTAMP    NOT NULL,
     gender             VARCHAR(50)  NOT NULL,
     clan_id            CHAR(36),
-    _customfield TEXT,
+    _customfield       TEXT,
     FOREIGN KEY (clan_id) REFERENCES clan (clan_id),
     FOREIGN KEY (country) REFERENCES country (country_code)
 );
@@ -194,3 +194,39 @@ VALUES ('97983be2-98b7-11e7-90cf-082e5f28d836', 1);
 
 INSERT INTO player_clan (player_id, clan_id)
 VALUES ('97983be2-98b7-11e7-90cf-082e5f28d836', '123456');
+
+INSERT INTO player (player_id, credential, created, modified, last_session, total_spent, total_refund,
+                    total_transactions, last_purchase, level, xp, total_playtime, country, language, birthdate, gender,
+                    _customfield)
+VALUES
+    ('97983be2-98b7-11e7-90cf-82playerid2', 'credential_2', '2021-02-11 14:00:00', '2021-02-24 14:00:00', '2021-02-24 14:00:00', 300, 0, 3, '2021-02-23 14:00:00', 2, 800, 120, 'US', 'en', '1995-06-15 00:00:00', 'female', 'custom_data_2'),
+    ('p97983be2-98b7-11e7-90cf-82playerid3', 'credential_3', '2021-03-12 15:00:00', '2021-03-25 15:00:00', '2021-03-25 15:00:00', 500, 0, 7, '2021-03-24 15:00:00', 4, 1200, 180, 'US', 'en', '1998-07-20 00:00:00', 'male', 'custom_data_3');
+
+INSERT INTO campaign (name, game, priority, start_date, end_date, enabled, last_updated)
+VALUES
+    ('campaign_2', 'game_2', 9.5, '2024-01-20 00:00:00', '2024-02-20 00:00:00', TRUE, now()),
+    ('campaign_3', 'game_3', 8.5, '2024-02-15 00:00:00', '2024-03-15 00:00:00', TRUE, now());
+
+INSERT INTO device (player_id, model, carrier, firmware)
+VALUES
+    ('97983be2-98b7-11e7-90cf-82playerid2','model_2', 'carrier_2', 'firmware_2'),
+    ('97983be2-98b7-11e7-90cf-82playerid2','model_3', 'carrier_3', 'firmware_3');
+
+INSERT INTO device (player_id, model, carrier, firmware)
+VALUES
+    ('p97983be2-98b7-11e7-90cf-82playerid3','model_2', 'carrier_2', 'firmware_2'),
+    ('p97983be2-98b7-11e7-90cf-82playerid3','model_3', 'carrier_3', 'firmware_3');
+
+INSERT INTO player_device (player_id, device_id)
+VALUES
+    ('97983be2-98b7-11e7-90cf-82playerid2', 2),
+    ('p97983be2-98b7-11e7-90cf-82playerid3', 3);
+
+INSERT INTO player_clan (player_id, clan_id)
+VALUES
+    ('97983be2-98b7-11e7-90cf-82playerid2', '123456'),
+    ('p97983be2-98b7-11e7-90cf-82playerid3', '123456');
+
+ALTER TABLE player
+    ALTER COLUMN total_spent TYPE DECIMAL(10, 2)  ,
+    ALTER COLUMN total_refund TYPE DECIMAL(10, 2);
