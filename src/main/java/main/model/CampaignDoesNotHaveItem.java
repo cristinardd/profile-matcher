@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import main.model.embeddable.CampaignCountryId;
+import main.model.embeddable.CampaignItemId;
 
 @Entity
 @Getter
@@ -13,14 +15,18 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "campaign_does_not_have_item")
 public class CampaignDoesNotHaveItem {
+    @EmbeddedId
+    private CampaignItemId id;
 
-    @Id
     @ManyToOne
-    @JoinColumn(name = "campaign_name", referencedColumnName = "name")
+    @MapsId("campaignId")
+    @JoinColumn(name = "campaign_name")
     private Campaign campaign;
 
-    @Id
     @ManyToOne
-    @JoinColumn(name = "item_name", referencedColumnName = "item_name")
+    @MapsId("itemName")
+    @JoinColumn(name = "item_name")
     private Item item;
+
+
 }

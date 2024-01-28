@@ -2,19 +2,23 @@ package main.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import main.model.embeddable.CampaignItemId;
 
 
 @Entity
 @Table(name = "campaign_has_item")
 @Getter
 public class CampaignItem {
-    @Id
+    @EmbeddedId
+    private CampaignItemId id;
+
     @ManyToOne
+    @MapsId("campaignId")
     @JoinColumn(name = "campaign_name")
     private Campaign campaign;
 
-    @Id
     @ManyToOne
+    @MapsId("itemName")
     @JoinColumn(name = "item_name")
     private Item item;
 
