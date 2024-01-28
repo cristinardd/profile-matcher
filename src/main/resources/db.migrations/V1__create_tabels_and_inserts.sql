@@ -230,3 +230,28 @@ VALUES
 ALTER TABLE player
     ALTER COLUMN total_spent TYPE DECIMAL(10, 2)  ,
     ALTER COLUMN total_refund TYPE DECIMAL(10, 2);
+
+
+-- add other clan
+INSERT INTO clan (clan_id, name)
+VALUES ('1', 'new clan');
+
+INSERT INTO player_clan (player_id, clan_id)
+VALUES
+    ('p97983be2-98b7-11e7-90cf-82playerid3', '1');
+
+
+-- new campaign
+
+INSERT INTO campaign (name, game, priority, start_date, end_date, enabled, last_updated)
+VALUES
+    ('all_players_campaign', 'universal_game', 8.0, '2024-01-01 00:00:00', '2024-04-01 00:00:00', TRUE, now());
+
+INSERT INTO campaign_level (campaign_name, min_level, max_level)
+VALUES ('all_players_campaign', 1, 10);
+
+INSERT INTO campaign_country (campaign_name, country_code)
+VALUES
+    ('all_players_campaign', 'US'),
+    ('all_players_campaign', 'RO'),
+    ('all_players_campaign', 'CA');
