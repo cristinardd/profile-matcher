@@ -2,6 +2,8 @@ package main.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.util.Set;
+
 @Entity
 @Getter
 @Table(name = "device")
@@ -11,10 +13,6 @@ public class Device {
     @Column(name = "id")
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "player_id", nullable = false)
-    private Player player;
-
     @Column(name = "model", nullable = false)
     private String model;
 
@@ -23,4 +21,7 @@ public class Device {
 
     @Column(name = "firmware", nullable = false)
     private String firmware;
+
+    @ManyToMany(mappedBy = "devices")
+    private Set<Player> players;
 }

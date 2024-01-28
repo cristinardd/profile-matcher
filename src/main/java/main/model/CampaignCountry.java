@@ -6,7 +6,6 @@ import lombok.Getter;
 @Entity
 @Table(name = "campaign_country")
 @Getter
-//@IdClass(CampaignCountryId.class)
 public class CampaignCountry {
     @Id
     @ManyToOne

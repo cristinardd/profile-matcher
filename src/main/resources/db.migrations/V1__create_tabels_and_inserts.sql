@@ -172,3 +172,25 @@ VALUES ('97983be2-98b7-11e7-90cf-082e5f28d836', 'cash', 123),
 
 ALTER TABLE player
     ADD COLUMN active_campaign VARCHAR(255);
+
+CREATE TABLE player_clan (
+                             player_id CHAR(36) NOT NULL,
+                             clan_id CHAR(36) NOT NULL,
+                             PRIMARY KEY (player_id, clan_id),
+                             FOREIGN KEY (player_id) REFERENCES player(player_id),
+                             FOREIGN KEY (clan_id) REFERENCES clan(clan_id)
+);
+
+CREATE TABLE player_device (
+                               player_id CHAR(36) NOT NULL,
+                               device_id INT NOT NULL,
+                               PRIMARY KEY (player_id, device_id),
+                               FOREIGN KEY (player_id) REFERENCES player(player_id),
+                               FOREIGN KEY (device_id) REFERENCES device(id)
+);
+
+INSERT INTO player_device (player_id, device_id)
+VALUES ('97983be2-98b7-11e7-90cf-082e5f28d836', 1);
+
+INSERT INTO player_clan (player_id, clan_id)
+VALUES ('97983be2-98b7-11e7-90cf-082e5f28d836', '123456');

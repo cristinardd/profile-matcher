@@ -6,7 +6,6 @@ import lombok.Getter;
 
 @Entity
 @Table(name = "campaign_has_item")
-//@IdClass(CampaignItemId.class)
 @Getter
 public class CampaignItem {
     @Id

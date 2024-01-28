@@ -21,7 +21,6 @@ public class PlayerDto {
     private LocalDateTime modified;
     private LocalDateTime birthdate;
     private String gender;
-    private String clanId;
     private String customfield;
     private Integer totalSpent;
     private Integer level;
@@ -32,7 +31,7 @@ public class PlayerDto {
     private Integer xp;
     private String country;
     private List<CampaignDto> activeCampaigns;
-    private ClanDto clanDto;
-    private Map<String, Integer> inventoryMap;
+    private List<ClanDto> clan;
+    private Map<String, Integer> inventory;
     private List<DeviceDto> devices;
 }

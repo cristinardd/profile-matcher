@@ -75,12 +75,22 @@ public class Player {
     @Column(name = "_customfield")
     private String customfield;
 
-    @ManyToOne
-    @JoinColumn(name = "clan_id")
-    private Clan clan;
-
-    @OneToMany(mappedBy = "player")
+    @ManyToMany
+    @JoinTable(
+            name = "player_device",
+            joinColumns = @JoinColumn(name = "player_id"),
+            inverseJoinColumns = @JoinColumn(name = "device_id")
+    )
     private Set<Device> devices;
+
+    @ManyToMany
+    @JoinTable(
+            name = "player_clan",
+            joinColumns = @JoinColumn(name = "player_id"),
+            inverseJoinColumns = @JoinColumn(name = "clan_id")
+    )
+    private Set<Clan> clans;
+
     @OneToMany(mappedBy = "player")
     private Set<Inventory> inventory;
     @Column(name = "active_campaign")
