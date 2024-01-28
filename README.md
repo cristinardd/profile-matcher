@@ -173,8 +173,7 @@ Controllers in this application serve as the entry points for HTTP requests. The
 ```
   </details>
 
-  
-### 2. PlayerController
+## 2. PlayerController
 
 - **Responsibilities**: Handles HTTP requests related to player data.
 - **Endpoints**:
@@ -182,13 +181,12 @@ Controllers in this application serve as the entry points for HTTP requests. The
     - **Functionality**: Retrieves a list of all players.
     - **Return Type**: `ResponseEntity<List<PlayerDto>>`
     - **Description**: Invokes `playerService.findAll()` to fetch all players and returns them in a response entity.
-   
-    
-    <details>
-    <summary>Click to expand JSON /findAll response</summary>
+
+<details>
+<summary>Click to expand JSON `/findAll` Response</summary>
 
 ```json
-[
+{[
     {
         "playerId": "p97983be2-98b7-11e7-90cf-82playerid3",
         "credential": "credential_3",
@@ -275,9 +273,10 @@ Controllers in this application serve as the entry points for HTTP requests. The
             }
         ]
     }
-]
+] }
 ```
 </details>
+
 
   - **GET `/api/v1/get_client_config/{playerId}`**: 
     - **Functionality**: Fetches the client configuration for a specific player.
