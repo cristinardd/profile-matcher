@@ -11,11 +11,6 @@ CREATE TABLE country
     country_code VARCHAR(50) PRIMARY KEY
 );
 
-CREATE TABLE level
-(
-    level INT PRIMARY KEY
-);
-
 CREATE TABLE campaign
 (
     name         VARCHAR(255) PRIMARY KEY,
